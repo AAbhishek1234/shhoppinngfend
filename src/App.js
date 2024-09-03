@@ -10,7 +10,9 @@ import Log from './Pages/Log';
 import OnSale from './components/OnSale';
 import Brands from './components/Brands';
 import NewArrival from './components/NewArrival';
-import NewArrivals from './components/NewArrivals';
+import NewArrivals from './components/NewArrivals'
+import Signup from './Pages/Signup';
+import Profile from './Pages/Profile';
 function App()
  {
   return(
@@ -23,10 +25,13 @@ function App()
              <Route path='/' element={<Home/>}> </Route>
              <Route path="/Shop" element={<Shop />}/>
              <Route path='/Cart' element={<Cart/>}/> 
-             <Route path='Log' element={<Log/>}/>
+             <Route path='/Log' element={<Log/>}/>
              <Route path='/OnSale'element={<OnSale/>}/>
              <Route path='/NewArrivals'element={<NewArrivals/>}/>
              <Route path='/Brands' element={<Brands/>}/>
+             <Route path='/Signup' element={<Signup/>}/>
+             <Route path='/Profile' element={<Profile/>}></Route>
+             
             
           </Routes>
         </Router>

@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate } from "react-router-dom";
 import { useState } from 'react';
 import { useEffect } from 'react';
-import Card from './Card';
+//import Card from './Card';
 import Nav from './Nav';
 import './cart.css';
 function Cart() {
@@ -11,15 +11,15 @@ function Cart() {
     navigate("/Onsale");
   }
   const[count,setCount] = useState(0);
-  const [productdetails, setProductdetails]=useState([0]);
+  const [cart, setCart]=useState([]);
   useEffect(() => {
-    console.log("This is useEffect 1");
-    fetch('http://localhost:4000/product/productdetails') // api for the get request
+    console.log("cart data is showing");
+    fetch('http://localhost:4000/cart/fetch') // api for the get request
     .then(response => response.json())
     .then((data) => 
       { 
-        console.log(data.productdetails)
-        setProductdetails(data.productdetails)
+        console.log(data)
+        setCart(data)
       });
      
   }, [])
@@ -27,22 +27,22 @@ function Cart() {
     <>
     <Nav></Nav> 
     {
-    productdetails && productdetails.map(( productdetails,index)=>
+    cart && cart.map(( cart,index)=>
     (
     
-  <><img id='shirt1121' src={`${productdetails.url1}`}  />
-  <img id='localt' src={`${productdetails.url2}`} />
-  <img id='localt1' src={`${productdetails.url3}`} />
-  <img id='localt2' src={`${productdetails.url4}`}/>
-  <h1 id='onelife'>{productdetails.title} </h1>
-  <img id='localt3'src={`${productdetails.rating}`}/>
-  <div className='productprice '>{productdetails.actualprize}
+  <><img id='shirt1121' src={cart.url1}  />
+  <img id='localt' src={cart.url2} />
+  <img id='localt1' src={cart.url3} />
+  <img id='localt2' src={cart.url4}/>
+  <h1 id='onelife'>{cart.title} </h1>
+  <img id='localt3'src={cart.rating}/>
+  <div className='productprice '>{cart.actualprize}
         
-        <div className='productp'>{productdetails.prize}
+        <div className='productp'>{cart.prize}
            </div>
         <div className='productd'></div>
-        <button className='b40' type='button'>{productdetails.discount}</button>
-      </div><p id='productpara'>{productdetails.description} </p>
+        <button className='b40' type='button'>{cart.discount}</button>
+      </div><p id='productpara'>{cart.description} </p>
       <div className='producthr'>
         </div>
         <p id='selectcolor'>Select Colors</p>

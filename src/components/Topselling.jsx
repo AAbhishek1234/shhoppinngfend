@@ -1,61 +1,36 @@
-import React from 'react'
+import React, { useState,useEffect } from 'react'
 import './Shop.css';
 function Topselling() {
+  const[topsell,setTopsell]=useState([])
+  useEffect(() => {
+    console.log("Topselling is coming");
+    fetch("http://localhost:4000/create/fetchall")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setTopsell(data);
+      });
+  }, []);
   return (
     <>
-    
     <h1 id='newarrivals'>TOP SELLING</h1>
-  <div className='clothes'>
-  <div className='t-shirt'>
-    <img src='/Images/Frame 32.png'/>
-    <p className='p8'>T-shirt with Tape Details</p>
-    <img id='starimg1' src='/Images/star1.png'/>
-    <div className='paisa'>
-      $120
-    </div>
+       <div id='divv'>
+       {
+       topsell && topsell.map((topsell,index)=>(
+    <div className='t-shirt'>
+             <img src={topsell.image} />
+             <p className='p8'>{topsell.title}</p>
+             <img id='starimg2' src='/Images/star2.png' />
+             <div className='paisa'>
+               {topsell.price}
+             </div>
+           </div>
+           
+         )
+  )  }
   </div>
-  <div className='t-shirt'>
-    <img src='/Images/Frame 34.png'/>
-    <p className='p8'>Skinny Fit Jeans</p>
-    <img id='starimg2' src='/Images/star2.png'/>
-    <div className='paisa'>
-      $240
-    </div>
-    <div className='paisa1'>
-      $260 
-      <div className='hr'>
-      <hr class="new4"></hr>
-      </div>
-      <button className='b20' type='button'>-20%</button>
-    </div>
-  </div>
-  <div className='t-shirt'>
-    <img src='/Images/Frame 35.png'/>
-    <p className='p8'>Checkered Shirt</p>
-    <img id='starimg3' src='/Images/star1.png'/>
-    <div className='paisa'>
-      $180
-    </div>
-  </div>
-  <div className='t-shirt'>
-    <img src='/Images/Frame 32.png'/>
-    <p className='p8'>Sleeve Striped T-shirt</p>
-    <img id='starimg4' src='/Images/star1.png'/>
-    <div className='paisa'>
-      $130
-    </div>
-    <div className='paisa1'>
-      $160 
-      <div className='hr'>
-      <hr class="new4"></hr>
-      </div>
-      <button className='b20' type='button'>-30%</button>
-    </div>
-  </div>
-  </div>
-    
     </>
+  
   )
 }
-
 export default Topselling
