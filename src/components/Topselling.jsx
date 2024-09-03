@@ -18,7 +18,7 @@ function Topselling() {
        {
        topsell && topsell.map((topsell,index)=>(
     <div className='t-shirt'>
-             <img src={topsell.image} />
+             <img src={`data:${topsell.image.fileType};base64,${topsell.image.fileContent}`} />
              <p className='p8'>{topsell.title}</p>
              <img id='starimg2' src='/Images/star2.png' />
              <div className='paisa'>

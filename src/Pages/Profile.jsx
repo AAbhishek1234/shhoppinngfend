@@ -4,9 +4,7 @@ function Profile() {
   return (
     <>
     <div className='' >
-        <center><h1>welcome to profile</h1></center>
-        
-        
+        <h1>welcome to profile</h1>
     </div>
     </>
   )
