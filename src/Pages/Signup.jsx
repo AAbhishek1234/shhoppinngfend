@@ -1,8 +1,51 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Signup.css';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { toast } from "react-toastify";
 function Signup() {
-  return (
+  
+  const [username, setUsername]=useState("");
+  const [password, setPassword]=useState("");
+  function handleUserChange(e){
+    setUsername(e.target.value)
+  }
+  function handlePasswordChange(e){
+    setPassword(e.target.value)
+  }
+  const navigate = useNavigate();
+  function handleClick() {
+    //navigate("/Log");
+  }
+  async function handleSignup() {
+    const response = await fetch("http://localhost:4000/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: username,
+        email: username,
+        password: password,
+      }),
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        console.log(data)
+        if(data.jwtToken && data.success){
+        localStorage.setItem("token", data.jwtToken);
+        toast.success("sign up succecced!")
+        navigate("/Log")
+        }
+        else{
+          toast.warning(data.message);
+        }
+      })
+      .catch((er) => console.log(er));
+  }
+  return(
     <>
     <h1 id='hh'>SHOP.CO</h1>
    <img id='log'src='/Images/bert-b-rhNff6hB41s-unsplash 1.png'/>
@@ -18,15 +61,15 @@ function Signup() {
       <div className='hr'>
       <hr className="new8"></hr>
       </div>
-      <p id='usernamep'>User Name</p> 
-      <input id='userinput1' type='email'/>
+      <p id='usernamep'>User Name </p> 
+      <input id='userinput1' type='Username'onChange={handleUserChange}/>
       <p id='username11'>Email</p>
-      <input id='userinput2' type='email'/>
+      <input id='userinput2' type='email' onChange={handleUserChange}/>
       <p id='username12'>Password</p>
-      <input id='userinput21' type='password'/>
-      <p id='username13'>Address</p>
-      <input id='userinput22' type='text'/>
-      <button id='buttonl' type='button'>Sign Up</button>
+      <input id='userinput21' type='password' onChange={handlePasswordChange}/>
+      {/* <p id='username13'>Address</p>
+      <input id='userinput22' type='text'/> */}
+      <button id='buttonl' type='button' onClick={handleSignup}>Sign Up</button>
       {/* <button id='button4' type='button'>Sign in</button>
       <p id='account'> Don't have an account?</p>
       <Link> <p id='sin'>Sign up</p></Link> */}

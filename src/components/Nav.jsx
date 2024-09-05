@@ -9,7 +9,7 @@ const goToLogin =()=>{
  if(!localStorage.getItem("token"))
   navigate("/Log")
 else
-navigate("/profile")
+navigate("/")
 
 }
   return (
@@ -24,7 +24,8 @@ navigate("/profile")
        <input className="gm" type="text" placeholder="        Search for products"/>
        <Link to="/Cart">
       <img id='cart' src="/Images/shopping-cart (1).png"/></Link>
-       <img id='user' src="/Images/user.png" alt="myn" onClick={goToLogin} />
+      <Link to="/Log">
+       <img id='user' src="/Images/user.png" alt="myn" /></Link>
     </div>
     
     </>

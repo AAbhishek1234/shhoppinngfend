@@ -12,13 +12,15 @@ import Brands from './components/Brands';
 import NewArrival from './components/NewArrival';
 import NewArrivals from './components/NewArrivals'
 import Signup from './Pages/Signup';
-import Profile from './Pages/Profile';
+//import Profile from './Pages/Profile';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function App()
  {
   return(
     <>
    
-    
+    <ToastContainer/>
         <Router>   
           <Routes> 
         {/* <Route path="/" element={<Nav/>}/>  */}
@@ -30,9 +32,7 @@ function App()
              <Route path='/NewArrivals'element={<NewArrivals/>}/>
              <Route path='/Brands' element={<Brands/>}/>
              <Route path='/Signup' element={<Signup/>}/>
-             <Route path='/Profile' element={<Profile/>}></Route>
-             
-            
+             {/* <Route path='/Profile' element={<Profile/>}></Route> */}
           </Routes>
         </Router>
         

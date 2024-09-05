@@ -5,11 +5,13 @@ import { useEffect } from 'react';
 //import Card from './Card';
 import Nav from './Nav';
 import './cart.css';
+//import Topselling from './Topselling';
 function Cart() {
   const navigate = useNavigate();
   function handleClick() {
     navigate("/Onsale");
   }
+  const[topsell,setTopsell]=useState([])
   const[count,setCount] = useState(0);
   const [cart, setCart]=useState([]);
   useEffect(() => {
@@ -23,14 +25,23 @@ function Cart() {
       });
      
   }, [])
+  useEffect(() => {
+    console.log("Topselling is coming");
+    fetch("http://localhost:4000/create/fetchall")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setTopsell(data);
+      });
+  }, []);
   return (
     <>
     <Nav></Nav> 
     {
-    cart && cart.map(( cart,index)=>
+    cart && cart.map(( carts,index)=>
     (
-    
-  <><img id='shirt1121' src={cart.url1}  />
+     
+  <><img id='shirt1121' src={`data:${cart.image.fileType};base64,${cart.image.fileContent}`} />
   <img id='localt' src={cart.url2} />
   <img id='localt1' src={cart.url3} />
   <img id='localt2' src={cart.url4}/>
@@ -61,7 +72,7 @@ function Cart() {
           <span id='span1'>{count}</span>
           <button id='buttongg1' onClick={() => setCount(count + 1)}>+</button>
         </div><button id='Addc' type='button' onClick={handleClick}>Add to Cart</button><p id='productdetail'>Product Deatils</p><div className='producthr3'>
-        </div><p id='sleek'>Sleek and timeless. Titanium glasses with an innovative bridge. A frame to suit every face,  Morgan   is  a  classic <br />'panto' shape. Named after James Morgan, the engineer who built the Regent's Canal, it features custom<br /> elements including fluid single piece bridge, adjustable nose pads and temple tips based on Constantin<br /> Brâncuşi's Bird in Space.</p><p id='sleek'>Sleek and timeless. Titanium glasses with an innovative bridge. A frame to suit every face,  Morgan   is  a  classic <br />'panto' shape. Named after James Morgan, the engineer who built the Regent's Canal, it features custom<br /> elements including fluid single piece bridge, adjustable nose pads and temple tips based on Constantin<br /> Brâncuşi's Bird in Space.</p><ul>
+        </div><p id='sleek'>Sleek and timeless. Titanium glasses with an innovative bridge. A frame to suit every face,  Morgan   is  a  classic <br />'panto' shape. Named after James Morgan, the engineer who built the Regent's Canal, it features custom<br /> elements including fluid single piece bridge, adjustable nose pads and temple tips based on Constantin<br /> Brâncuşi's Bird in Space.</p><p id='sleek'>Sleek and timeless. Titanium glasses with an innovative bridge. A frame to suit every face,  Morgan   is  a  classic <br />'panto' shape. Named after James Morgan, the engineer who built the Regent's Canal, it features custom<br /> elements including fluid single piece bridge, adjustable nose pads and temple tips based on Constantin<br /> Brâncuşi's Bird in Space.</p><ul>
           <li id='lis'>99.7% pure titanium front</li>
           <li id='lis'>More than 4hv on the Vickers hardness test.</li>
           <li id='lis'>lon plated to over 0.3μ</li>
@@ -69,6 +80,7 @@ function Cart() {
           <li id='lis'>Adjustable titanium nose pads for a comfortable fit</li>
           <li id='lis'>UV protection</li>
         </ul><div className='producthr4'>
+    
         </div><h1> <center>YOU MIGHT ALSO LIKE</center></h1>
         {/* /////////////////////////////
         //////////////////////////////
@@ -80,7 +92,27 @@ function Cart() {
         //////
         /////
      */}
-        <><div className='clothes'>
+      
+       <div id='divv'>
+       {
+       topsell && topsell.map((topsell,index)=>(
+    <div className='t-shirt'>
+             <img src={`data:${topsell.image.fileType};base64,${topsell.image.fileContent}`} />
+             <p className='p8'>{topsell.title}</p>
+             <img id='starimg2' src='/Images/star2.png' />
+             <div className='paisa'>
+               {topsell.price}
+             </div>
+           </div>
+       
+         )
+  )  }
+
+    &rbrace;
+
+  </div>
+
+        {/* <><div className='clothes'>
         <div className='t-shirt'>
           <img  src="/Images/Frame 33.png"/>
           <p className='p8'>Vertical Striped Shirt</p>
@@ -123,8 +155,8 @@ function Cart() {
             $210
           </div>
         </div> 
-      </div> 
-     
+      </div>  
+     </> */}
       <div className='stay'>
           <h1 id='stay1'>STAY UPTO DATE ABOUT</h1>
           <input id='inp' type='text' placeholder='                   Enter your email address'></input>
@@ -171,18 +203,19 @@ function Cart() {
           <img id='ms' src='/Images/s12.png' />
         </div>
         
-        </>
+      
     </>
         
-       
+        
     )
-  )
+)
 }
-  
        
 
     </>
+
   )
 }
+
 
 export default Cart
