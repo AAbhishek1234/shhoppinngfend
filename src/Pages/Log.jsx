@@ -40,7 +40,7 @@ function Log() {
         console.log(data);
         if (data.jwtToken && data.success) {
           localStorage.setItem("token", data.jwtToken);
-          toast.success("sign in succecced!");
+          toast.success("sign in successfully!");
           navigate("/");
         }
       });

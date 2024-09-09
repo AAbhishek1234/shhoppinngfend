@@ -7,11 +7,15 @@ function Signup() {
   
   const [username, setUsername]=useState("");
   const [password, setPassword]=useState("");
+  const [email, setEmail]=useState("");
   function handleUserChange(e){
     setUsername(e.target.value)
   }
   function handlePasswordChange(e){
     setPassword(e.target.value)
+  }
+  function handleEmailChange(e){
+    setEmail(e.target.value)
   }
   const navigate = useNavigate();
   function handleClick() {
@@ -25,7 +29,7 @@ function Signup() {
       },
       body: JSON.stringify({
         name: username,
-        email: username,
+        email: email,
         password: password,
       }),
     })
@@ -49,8 +53,6 @@ function Signup() {
     <>
     <h1 id='hh'>SHOP.CO</h1>
    <img id='log'src='/Images/bert-b-rhNff6hB41s-unsplash 1.png'/>
-   {/* <button id='button1' type='button'>Login</button>
-    <button id='button2' type='button'>Sign Up</button> */}
     <h3 id='signup'>Sign Up Page</h3>
     <button id='button3' type='button'>Continue With Google</button>
     <img id='googleicon'src='/Images/googleicon.png'/>
@@ -64,18 +66,13 @@ function Signup() {
       <p id='usernamep'>User Name </p> 
       <input id='userinput1' type='Username'onChange={handleUserChange}/>
       <p id='username11'>Email</p>
-      <input id='userinput2' type='email' onChange={handleUserChange}/>
+      <input id='userinput2' type='email' onChange={handleEmailChange}/>
       <p id='username12'>Password</p>
       <input id='userinput21' type='password' onChange={handlePasswordChange}/>
-      {/* <p id='username13'>Address</p>
-      <input id='userinput22' type='text'/> */}
       <button id='buttonl' type='button' onClick={handleSignup}>Sign Up</button>
-      {/* <button id='button4' type='button'>Sign in</button>
-      <p id='account'> Don't have an account?</p>
-      <Link> <p id='sin'>Sign up</p></Link> */}
+      
     
     </>
   )
 }
-
 export default Signup
