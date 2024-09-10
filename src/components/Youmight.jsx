@@ -9,7 +9,7 @@ import Card from "./Card";
 //import Card from './Card';
 
 
-function NewArrivals() {
+function Youmight() {
   
   const navigate = useNavigate();
   function handleClick(productId) {
@@ -30,7 +30,7 @@ function NewArrivals() {
   return (
     <>
 
-      <h1 id="newarrivals">NEW ARRIVALS</h1>
+      {/* <h1 id="newarrivals">NEW ARRIVALS</h1> */}
       <div id="divv">
         {arrivals &&
           arrivals.map((product, index) => {
@@ -49,4 +49,4 @@ function NewArrivals() {
     </>
   );
 }
-export default NewArrivals;
+export default Youmight;

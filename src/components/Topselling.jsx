@@ -1,7 +1,13 @@
 import React, { useState,useEffect } from 'react'
 import Card from './Card';
+import { useNavigate } from 'react-router-dom';
 import './Shop.css';
 function Topselling() {
+  const navigate = useNavigate();
+  function handleClick(productId) {
+    console.log("data")
+    navigate(`/Productdetails/${productId}`);
+  }
   const[topsell,setTopsell]=useState([])
   useEffect(() => {
     console.log("Topselling is coming");
@@ -19,7 +25,7 @@ function Topselling() {
        topsell && topsell.map((product,index)=>{
       
         return<>
-          <Card product={product}/>
+          <Card handleClick={handleClick}product={product}/>
 
           </>
        })

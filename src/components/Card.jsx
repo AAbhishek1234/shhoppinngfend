@@ -1,16 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import "./Ncard.css";
 import {useStore} from "../services/lib/zustand"
-const Card = ({ product }) => {
+const Card = ({ product,handleClick }) => {
   const navigate = useNavigate();
-const {setProductId} = useStore()
-  const handleClick = () => {
-    setProductId(product._id)
-    //console.log(product._id)
-    navigate('/Cart');
+  const click = () => {
+    handleClick(product._id)
   };
   return (
-    <div className="t-shirt" onClick={handleClick}>
+    <div className="t-shirt" onClick={click}>
       <img
         src={`data:${product.image.fileType};base64,${product.image.fileContent}`}
         alt="T-shirt with Tape Details"

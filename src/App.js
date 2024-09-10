@@ -15,12 +15,16 @@ import Signup from './Pages/Signup';
 //import Profile from './Pages/Profile';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Productdetails from './Pages/Productdetails';
+import Loader from './components/Loader';
+
 function App()
  {
   return(
     <>
    
     <ToastContainer/>
+    <Loader/>
         <Router>   
           <Routes> 
         {/* <Route path="/" element={<Nav/>}/>  */}
@@ -32,7 +36,8 @@ function App()
              <Route path='/NewArrivals'element={<NewArrivals/>}/>
              <Route path='/Brands' element={<Brands/>}/>
              <Route path='/Signup' element={<Signup/>}/>
-             {/* <Route path='/Profile' element={<Profile/>}></Route> */}
+             <Route path='/Productdetails/:productId' element={<Productdetails/>}/>
+          
           </Routes>
         </Router>
         

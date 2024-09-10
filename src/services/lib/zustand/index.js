@@ -1,7 +1,13 @@
-import { create } from "zustand";
+import { create } from 'zustand'
+
 const useStore = create((set) => ({
   productId: null,
-  setProductId: (productId) => set({ productId: productId }),
-}));
+  setproductId: (productId) => set({ productId:productId}),
+}))
 
-export { useStore };
+const useLoaderStore = create((set)=>({
+  loading:false,
+  setLoading : (bool)=>set({loading:bool})
+}))
+
+export {useStore,useLoaderStore}
