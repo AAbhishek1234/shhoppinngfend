@@ -1,3 +1,9 @@
+.colorBorder{
+    border: 2px dashed yellow !important;
+    background-color: red;
+
+}
+
 #productdetail{
     margin-left: 70px;
     margin-top: 190px;
@@ -144,7 +150,7 @@
     color: rgb(105, 100, 100);
     font-size: 20px;
 }
-#small{
+.small{
     background-color:  #f0f0f0;
     height: 40px;
     width: 80px;
@@ -154,12 +160,12 @@
     margin-left: 590px;
     margin-top: -10px;
 }
-#small:hover{
+.small:hover{
     background-color: black;
     color: white;
     cursor: pointer;
 }
-#Medium{
+.Medium{
     background-color:  #f0f0f0;
     height: 40px;
     width: 95px;
@@ -169,12 +175,12 @@
     margin-left: 10px;
     margin-top: -10px;
 }
-#Medium:hover{
+.Medium:hover{
     background-color: black;
     color: white;
     cursor: pointer;
 }
-#Large{
+.Large{
     background-color:  #f0f0f0;
     height: 40px;
     width: 80px;
@@ -184,13 +190,13 @@
     margin-left: 10px;
     margin-top: -10px;
 }
-#Large:hover{
+.Large:hover{
     background-color: black;
     color: white;
     cursor: pointer;
 }
 
-#X-Large{
+.X-Large{
     background-color:  #f0f0f0;
     height: 40px;
     width: 95px;
@@ -201,7 +207,7 @@
     margin-top: -10px;
     
 }
-#X-Large:hover{
+.X-Large:hover{
     background-color: black;
     color: white;
     cursor: pointer;

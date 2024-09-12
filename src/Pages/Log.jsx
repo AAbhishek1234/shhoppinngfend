@@ -43,6 +43,9 @@ function Log() {
           toast.success("sign in successfully!");
           navigate("/");
         }
+        else{
+          toast.warning(data.message);
+        }
       });
   }
 
@@ -68,7 +71,7 @@ function Log() {
       <div className="hr">
         <hr className="new8"></hr>
       </div>
-      <p id="username">User name or email address</p>
+      <p id="username">email address</p>
       <input id="userinput1" onChange={handleUserChange} type="email" />
       <p id="username1">Password</p>
       <input id="userinput2" onChange={handlePasswordChange} type="password" />

@@ -28,8 +28,8 @@ function Gradiant() {
     (
      <><img id='gradiantshirt'onClick={handleClick} src={`${cartdata.url}`} />
      <h3 id='heading1'>{cartdata.title}</h3>
-     <p id='size'>Size : {cartdata.size}</p>
-     <p id='color1'>Color :{cartdata.color}</p>
+     <p id='size'>: {cartdata.size}</p>
+     <p id='color1'>{cartdata.color}</p>
      
      <p id='dollar'>{cartdata.prize}</p>
      <Link to="/del">

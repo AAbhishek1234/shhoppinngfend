@@ -10,24 +10,43 @@ import { useParams } from "react-router-dom";
 import Nav from "../components/Nav";
 import Topselling from "../components/Topselling";
 import Card from "../components/Card";
+import { postData } from "../services/utils/apiCall";
 
 function Productdetails() {
   // const { productId } = useStore();
-  const {productId} = useParams();
+  const { productId } = useParams();
   const navigate = useNavigate();
+
   console.log(productId);
 
   // const { data, error } = useFetch(`/product/single?productid=${productId}`);
-
 
   // console.log("data", data);
   // console.log("error", error);
 
   //   console.log(productId)
-  function handleClick() {}
-  const [count, setCount] = useState(0);
+  //function handleClick() {}
   const [data, setData] = useState();
+  const [color, setColor] = useState("sandy");
+  const [count, setCount] = useState(1);
+  
+  const [size, setSize] = useState("");
 
+  async function handleClick() {
+    try {
+      const data = await postData("/cart/addtocart", {
+        product_id: productId,
+        quantity: count,
+        color,
+        size,
+      });
+      console.log(data);
+    } catch (error) {
+
+      console.log(error)
+    }
+    // navigate("/Cart");
+  }
 
   useEffect(() => {
     if (productId) {
@@ -41,30 +60,51 @@ function Productdetails() {
     }
   }, [productId]);
 
-  return ( data && <>
-  <Nav></Nav>
-  <h1 id="heading">Product Details Page</h1>
-   <img id='shirt1121' src={`data:${data.image.fileType};base64,${data.image.fileContent}`} />
-   <h1 id="onelife">{data.title}</h1>
-   <p id="productpara">{data.description} </p>
-   <p id="prating">{data.rating}</p>
-   <div className="productprice ">{data.price}</div>
-   <p id="selectcolor">Select Colors</p>
-        <button className="sandy" type="button"></button>
-        <button className="green" type="button"></button>
-        <button className="blue" type="button"></button>
+  return (
+    data && (
+      <>
+        <Nav></Nav>
+        <h1 id="heading">Product Details Page</h1>
+        <img
+          id="shirt1121"
+          src={`data:${data.image.fileType};base64,${data.image.fileContent}`}
+        />
+        <h1 id="onelife">{data.title}</h1>
+        <p id="productpara">{data.description} </p>
+        <p id="prating">{data.rating}</p>
+        <div className="productprice ">{data.price}</div>
+        <p id="selectcolor">Select Colors</p>
+        <button
+          className={`sandy ${color == "sandy" && "colorBorder"}`}
+          type="button"
+          onClick={() => setColor("sandy")}
+        ></button>
+        <button
+          className={`green ${color == "green" && "colorBorder"}`}
+          type="button"
+          onClick={() => setColor("green")}
+        ></button>
+        <button
+          className={`blue ${color == "blue" && "colorBorder"}`}
+          type="button"
+          onClick={() => setColor("blue")}
+        ></button>
         <div className="producthr1"></div>
         <p id="choosesize">Choose Size</p>
-        <button id="small" type="button">
-          Small
-        </button>
-        <button id="Medium" type="button">
+        <button className="small"
+        type="button" >
+          Small 
+          </button>
+          <button className="Medium" 
+        type="button" >
           Medium
         </button>
-        <button id="Large" type="button">
+        <button className="Large"  
+        type="button" onClick={() => setSize("Large")}>
           Large
         </button>
-        <button id="X-Large" type="button">
+        <button className="X-Large"  
+        type="button" onClick={() => setSize("X-Large")} >
           X-Large
         </button>
         <div className="producthr2"> </div>
@@ -113,7 +153,7 @@ function Productdetails() {
           {" "}
           <center>YOU MIGHT ALSO LIKE</center>
         </h1>
-       
+
         <div className="stay">
           <h1 id="stay1">STAY UPTO DATE ABOUT</h1>
           <input
@@ -174,9 +214,8 @@ function Productdetails() {
           <p id="Fb4">Shop.co &copy; 2000-2024. All Rights Reserved.</p>
           <img id="ms" src="/Images/s12.png" />
         </div>
-  </>
-    
-
+      </>
+    )
   );
 }
 export default Productdetails;

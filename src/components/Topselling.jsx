@@ -29,18 +29,7 @@ function Topselling() {
 
           </>
        })
-    // <div className='t-shirt'>
-    //          <img src={`data:${topsell.image.fileType};base64,${topsell.image.fileContent}`} />
-    //          <p className='p8'>{topsell.title}</p>
-    //          <img id='starimg2' src='/Images/star2.png' />
-    //          <div className='paisa'>
-    //            {topsell.price}
-    //          </div>
-    //        </div>
       }
-      
-      
-
   </div>
     </>
 

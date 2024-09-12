@@ -56,46 +56,9 @@ function Shop() {
   <img id='im1'src='/Images/Rectangle_2-removebg-preview 1.png'/>
   </div>
   <img id='brands'src='/Images/brands1.png'/>
-                     {/* New Arrivals  */}
-   <h1 id='newarrivals'>NEW ARRIVALS</h1>
+                    
+   
   
-  {
-    products && products.map(( product,index)=>
-    (
-
-<div className='t-shirt10'  onClick={handleClick} >
-    <img src={`${product.url}`}/>
-    <p className='p80'>{product.title}</p>
-    <img className='starimg20' src='/Images/star2.png'/>
-    <div className='paisa10'>
-      {product.prize}<br/>
-      {product.discount}<br/>
-      {product.offer}
-      {product.button}
-    </div>
-    </div>
-  )
-    )}
- <h1 id='tp'>TOP SELLING</h1>
- 
- {
-    products2 && products2.map(( product,index)=>
-    (
-<div className='t-shirt10'>
-<img src={`${product.url}`}/>
-    <p className='p80'>{product.title}</p>
-    <img className='starimg20' src='/Images/star2.png'/>
-    <div className='paisa10'>
-      {product.prize}
-      {product.discount}<br/>
-      {product.offer}
-      {product.button}
-    </div>
-</div>
-
-
-    )
-  )}
   
     </>
   )

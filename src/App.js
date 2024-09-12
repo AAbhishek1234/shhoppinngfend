@@ -4,7 +4,7 @@ import { BrowserRouter as Router,Route,Routes} from 'react-router-dom';
 import './App.css';
 import Home from './Pages/Home';
 import Shop from './Pages/Shop';
-import Cart from './components/Cart';
+import Cart from './Pages/Cart';
 import Nav from './components/Nav';
 import Log from './Pages/Log';
 import OnSale from './components/OnSale';

@@ -1,18 +1,18 @@
 import React from 'react'
 import './OnSale.css';
 import Nav from './Nav';
-import Gradiant from './Gradiant';
-import Summary from './Summary';
+//import Gradiant from './Gradiant';
+//import Summary from './Summary';
+import Brands from '../components/Brands'
 
 
 function OnSale() {
   
   return (
     <>
-    <Nav></Nav>
-    <h2 id='sale'>YOUR CART</h2>
-    <Gradiant></Gradiant>
-    <Summary></Summary>
+    <Brands></Brands>
+    {/* <Gradiant></Gradiant>
+    <Summary></Summary> */}
   
     
     

@@ -39,7 +39,7 @@ function Signup() {
       .then((data) => {
         console.log(data)
         if(data.jwtToken && data.success){
-        localStorage.setItem("token", data.jwtToken);
+        sessionStorage.setItem("token", data.jwtToken);
         toast.success("sign up succecced!")
         navigate("/Log")
         }

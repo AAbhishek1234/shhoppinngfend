@@ -80,7 +80,7 @@
         color: white;
       }
      #brands{
-    margin-top: -80px;
+    margin-top:10px;
     width: 1263px;
- 
+ position: relative;
      }

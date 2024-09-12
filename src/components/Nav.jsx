@@ -16,7 +16,7 @@ function Nav() {
 
   return (
     <>
-      <a href=""><h1 id='hy'>SHOP.CO</h1></a>
+      <a href="/"><h1 id='hy'>SHOP.CO</h1></a>
       <div className='navbar1'>
         <Link to='/Shop'>Shop</Link>
         <Link to='/OnSale'>OnSale</Link>

@@ -51,16 +51,15 @@ function Footer() {
     </p>
       </div>
       <div className='rating4'> 
-     <img src='/Images/rating 5.png'/> 
+     <img  id="rattii"src='/Images/rating 5.png'/> 
      <h4>Sarah M.</h4>
     <img id='t1'src='/Images/tick1.jpg'/>
     <p id='p8'>"I'm blown a<br/>
     clothes i r<br/>
-    wear to elegant<br/>
-    has exceeded my ".
+    wear to elegant<br/>".
     </p>
       </div>
-  </div> 
+  </div>
   {/* STAY UPTO DATE  */}
   <div className='stay'>
   <h1 id='stay1'>STAY UPTO DATE ABOUT</h1>
