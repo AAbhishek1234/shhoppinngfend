@@ -1,5 +1,5 @@
 import React from 'react'
-import '../Pages/cart.css'
+import '../pages/cart.css'
 function Stayuptodate() {
   return (
     <> 

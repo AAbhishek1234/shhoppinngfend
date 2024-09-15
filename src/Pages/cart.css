@@ -12,6 +12,11 @@
     border: 2px solid  #f0f0f0;
     margin-left: 40px;
 }
+
+.outerdivChild{
+    margin-top: 1rem
+}
+
 #img35{
     height: 8rem;
     width: 8rem;
@@ -60,16 +65,18 @@ margin-left: 10rem;
     margin-left: 10rem;
 }
 #size{
-    margin-top: -23rem;
+    margin-top: 1rem;
     margin-left: 10rem;
     position: absolute;
     
 }
 #color{
-    margin-top: -21rem; 
+    margin-top: 2rem; 
     margin-left: 10rem;
+    position: absolute;
 }
 #dollar{
+    position: absolute;
     margin-left: 10rem;
     margin-top: -0.5rem;
     font-weight: bold;
@@ -113,7 +120,7 @@ margin-left: 10rem;
 }
 #del{
     height: 1.5rem;
-    margin-top: -8.5rem;
+    margin-top:-3rem;
     position: absolute;
     margin-left: 33rem;
 }
@@ -134,7 +141,7 @@ margin-left: 10rem;
     width: 130px;
     background-color:  #f0f0f0;
     margin-left: 450px;
-    margin-top: -45px;
+    margin-top: 2rem;
     border-radius: 35px;
 }
 #calculation3{
@@ -150,7 +157,7 @@ margin-left: 10rem;
     width: 130px;
     background-color:  #f0f0f0;
     margin-left: 450px;
-    margin-top: 140px;
+    margin-top: 18rem;
     border-radius: 35px;
 }
 #summarydiv{

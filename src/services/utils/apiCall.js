@@ -10,7 +10,7 @@ const apiCall = async (path, body = null, method = "GET") => {
     method,
     headers: {
       "Content-Type": "application/json",
-      "Authorization": `Bearer ${token}`,
+      Authorization: `Bearer ${token}`,
     },
   };
 
@@ -29,7 +29,7 @@ const apiCall = async (path, body = null, method = "GET") => {
     }
     setLoading(false);
 
-    return await response;
+    return await response.json();
   } catch (error) {
     setLoading(false);
     throw error;
@@ -42,4 +42,5 @@ const getData = (path) => apiCall(path);
 const postData = (path, body) => apiCall(path, body, "POST");
 const deleteData = (path, body) => apiCall(path, body, "DELETE");
 const patchData = (path, body) => apiCall(path, body, "PATCH");
-export { getData, postData, deleteData, patchData };
+const putData = (path, body) => apiCall(path, body, "PUT");
+export { getData, postData, deleteData, patchData,putData };

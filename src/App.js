@@ -2,20 +2,20 @@ import React from 'react';
 
 import { BrowserRouter as Router,Route,Routes} from 'react-router-dom';
 import './App.css';
-import Home from './Pages/Home';
-import Shop from './Pages/Shop';
-import Cart from './Pages/Cart';
+import Home from './pages/Home';
+import Shop from './pages/Shop';
+import Cart from './pages/Cart';
 import Nav from './components/Nav';
-import Log from './Pages/Log';
+import Log from './pages/Log';
 import OnSale from './components/OnSale';
 import Brands from './components/Brands';
 import NewArrival from './components/NewArrival';
 import NewArrivals from './components/NewArrivals'
-import Signup from './Pages/Signup';
+import Signup from './pages/Signup'
 //import Profile from './Pages/Profile';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Productdetails from './Pages/Productdetails';
+import Productdetails from './pages/Productdetails'
 import Loader from './components/Loader';
 
 function App()

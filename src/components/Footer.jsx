@@ -107,11 +107,6 @@ function Footer() {
       <p id='Fb4'>Shop.co &copy; 2000-2024. All Rights Reserved.</p>
       <img id='ms'src='/Images/s12.png'/> 
   </div>       
-    
-    
-    
-    
-    
     </>
   )
 }

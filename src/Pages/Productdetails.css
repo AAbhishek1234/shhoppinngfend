@@ -11,11 +11,11 @@
     /* position: absolute; */
 }
 #shirt1121{
-    /* position: absolute; */
+    position: relative;
     height: 400px;
     width: 320px;
-    margin-left: 5px;
-    margin-top: 50px;
+    left: -550px;
+    top: 55px;
 }
 #localt{
     height: 159px;
@@ -41,7 +41,7 @@
 #onelife{
     font-weight: bolder;
     margin-left:690px;
-    margin-top: -420px;
+    margin-top: -380px;
     font-size: 42px;
 }
 #localt3{

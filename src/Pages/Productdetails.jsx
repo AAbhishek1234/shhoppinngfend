@@ -41,6 +41,7 @@ function Productdetails() {
         size,
       });
       console.log(data);
+      navigate("/cart")
     } catch (error) {
 
       console.log(error)
@@ -66,6 +67,7 @@ function Productdetails() {
         <Nav></Nav>
         <h1 id="heading">Product Details Page</h1>
         <img
+        
           id="shirt1121"
           src={`data:${data.image.fileType};base64,${data.image.fileContent}`}
         />
