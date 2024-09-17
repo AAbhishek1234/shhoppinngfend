@@ -30,8 +30,11 @@ function Nav() {
                      >LogOut</span>
                    </>
                  ) : (
-                    <Link  to="/Signup">
-                      <p id='sss'>SignUp</p></Link>
+                    <Link  to="/Log">
+                      <p id='sss'>Login</p>
+                      
+                      </Link>
+                  
                  )}
        </div>
     </>

@@ -131,6 +131,7 @@ import OrderSuccess from "../components/OrderSuccess.jsx";
 import { useFetch } from "../hooks/useFetch.js";
 import { deleteData, postData, putData } from "../services/utils/apiCall.js";
 import Footer from "../components/Footer.jsx";
+import Nav from "../components/Nav.jsx";
 
 function Cart() {
   const [cartItems, setCartItems] = useState();
@@ -152,6 +153,7 @@ function Cart() {
 
   const discountRate = 0.2;
   const deliveryFee = 15;
+  
 
   const [showOrder, setShowOrder] = useState(false);
 
@@ -162,6 +164,7 @@ function Cart() {
         subtotal:calculateSubtotal(),
         discount:calculateDiscount(),
         deliveryFee,
+        
         total:calculateTotal(),
   
       });}
@@ -175,6 +178,9 @@ function Cart() {
       )
     );
   };
+  function myFunction() {
+         window.alert("Not provided code ");
+    }
 
   const handleDecrement = (id) => {
     putData("/decrease?productId=" + id);
@@ -253,12 +259,12 @@ function Cart() {
                       className="item-image"
                     />
                     <div className="item-details">
-                      <h4>{item.title}</h4>
+                      <h4 id="tit">{item.title}</h4>
 
-                      <p>Size: {item.size}</p>
-                      <p>Color: {item.color}</p>
+                      <p id="size">Size: {item.size}</p>
+                      <p id="color">Color: {item.color}</p>
                       <h3>
-                        <p>${item.price}</p>
+                        <p>{item.price}</p>
                       </h3>
                     </div>
                     <div className="item-controls">
@@ -274,7 +280,8 @@ function Cart() {
                       onClick={() => handleRemove(item.product_id)}
                       className="remove-item"
                     >
-                      🗑️
+                    
+                      <img id="deletei"src="\Images\delete.png"/>
                     </button>
                   </div>
                 ))}
@@ -283,25 +290,25 @@ function Cart() {
               <div className="order-summary">
                 <h3>Order Summary</h3>
                 <p>
-          Subtotal: <span>${calculateSubtotal()}</span>
+          Subtotal: <span>{calculateSubtotal()}</span>
                 </p>
                 <p id="discount">
                   Discount (-{discountRate * 100}%):{" "}
-                  <span>-${calculateDiscount()}</span>
+                  <span>-{calculateDiscount()}</span>
                 </p>
                 <p>
-                  Delivery Fee: <span>${deliveryFee}</span>
+                  Delivery Fee: <span>{deliveryFee}</span>
                 </p>
-                <h4>
-                  Total: <span id="total">${calculateTotal()}</span>
-                </h4>
+                <p>
+                  Total: <span id="total">{calculateTotal()}</span>
+                </p>
 
                 <input
                   type="text"
                   placeholder="Add promo code"
                   className="promo-code-input"
                 />
-                <button className="apply-promo-button">Apply</button>
+                <button className="apply-promo-button" onClick={myFunction}>Apply</button>
                 <button
                   className="checkout-button"
                   onClick={() => {
@@ -309,11 +316,11 @@ function Cart() {
                     handleset()
                   }}
                 >
-                  Order
+                  Go to Checkout
                 </button>
               </div>
             </div>
-            <Footer />
+            <Footer></Footer>
           </>
         )
       )}

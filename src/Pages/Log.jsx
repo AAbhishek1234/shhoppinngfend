@@ -1,11 +1,10 @@
 import React from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useAuth } from "react";
 import "./Log.css";
 import { Link } from "react-router-dom";
 import Signup from "./Signup"
-import Home from "./Home";
 import { toast } from "react-toastify";
 
 function Log() {

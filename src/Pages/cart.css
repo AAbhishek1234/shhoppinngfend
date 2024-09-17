@@ -272,13 +272,13 @@ margin-left: 10rem;
     justify-content: space-between;
     margin-bottom: 20px;
     padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
   }
   
   .item-image {
-    width: 80px;
-    height: 80px;
+    width: 120px;
+    height: 150px;
     object-fit: cover;
     border-radius: 5px;
   }
@@ -311,41 +311,56 @@ margin-left: 10rem;
   
   .order-summary {
     width: 30%;
-    border: 1px solid #ddd;
+    border: 2px solid #ddd;
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 10px;
+     height: fit-content; 
+     margin-top: 70px;
   }
   
   .order-summary h3,
   .order-summary h4 {
     margin-bottom: 20px;
+    font-size: 25px;
   }
   
   .order-summary p {
     display: flex;
     justify-content: space-between;
     margin: 10px 0;
+    font-size: 20px;
   }
   
   .promo-code-input {
-    width: 100%;
+    width: 55%;
     padding: 10px;
     margin-bottom: 20px;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 20px;
   }
   
-  .apply-promo-button,
+  
   .checkout-button {
     width: 100%;
     padding: 10px;
     border: none;
     background-color: black;
     color: white;
-    border-radius: 5px;
+    border-radius: 20px;
     cursor: pointer;
     margin-bottom: 10px;
+    height: 13%;
   }
+  .apply-promo-button{
+    background-color: black;
+    color: white;
+    width: 100px;
+    height: 40px;
+    border-radius: 20px;
+    margin-left: 40px;
+    border: none;
+  }
+
   
   .checkout-button {
     background-color: #000;
@@ -354,7 +369,19 @@ margin-left: 10rem;
     color: red;
   }
   #total {
-    margin-left: 260px;
+    margin-left: 320px;
     position: absolute;
   }
-  
+  #deletei{
+    height: 30px;
+    width: 30px;
+  }
+  #tit{
+    font-size: 25px;
+  }
+  #size{
+    font-size: 20px;
+  }
+  #color{
+    font-size: 20px;
+  }
