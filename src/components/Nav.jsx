@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import "./Nav.css";
 
 function Nav() {
-  const token = sessionStorage.getItem("token");
+  const token = localStorage.getItem("token");
   const navigate = useNavigate();
   return (
     <>
@@ -12,7 +12,7 @@ function Nav() {
       <div className='navbar1'>
         <Link to='/Shop'>Shop</Link>
         <Link to='/OnSale'>OnSale</Link>
-        <Link to='/NewArrivals'>NewArrivals</Link>
+        <Link to='/NewArrival'>NewArrival</Link>
         <Link to='/Brands'>Brands</Link>
         <input className="gm" type="text" placeholder="Search for products" />
      
@@ -24,7 +24,7 @@ function Nav() {
                      <span
                      id="user"
                        onClick={() => {
-                         sessionStorage.removeItem("token");
+                         localStorage.removeItem("token");
                          navigate("/");
                        }}
                      >LogOut</span>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './Signup.css';
+import styles from "../styles/Signup.module.css";
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { toast } from "react-toastify";
@@ -39,8 +39,8 @@ function Signup() {
       .then((data) => {
         console.log(data)
         if(data.jwtToken && data.success){
-        sessionStorage.setItem("token", data.jwtToken);
-        toast.success("sign up succecced!")
+      localStorage.setItem("token", data.jwtToken);
+        toast.success("sign up Success!")
         navigate("/Log")
         }
         else{
@@ -51,25 +51,25 @@ function Signup() {
   }
   return(
     <>
-    <h1 id='hh'>SHOP.CO</h1>
-   <img id='log'src='/Images/bert-b-rhNff6hB41s-unsplash 1.png'/>
-    <h3 id='signup'>Sign Up Page</h3>
-    <button id='button3' type='button'>Continue With Google</button>
-    <img id='googleicon'src='/Images/googleicon.png'/>
-    <div className='hr'>
-      <hr class="new7"></hr>
-      <p id='or'>OR</p>
+    <h1 id={styles.hh}>SHOP.CO</h1>
+   <img id={styles.log} src='/Images/bert-b-rhNff6hB41s-unsplash 1.png'/>
+    <h3 id={styles.signup}>Sign Up Page</h3>
+    <button id={styles.button3} type='button'>Continue With Google</button>
+    <img id={styles.googleicon} src='/Images/googleicon.png'/>
+    <div className={styles.hr}>
+      <hr class={styles.new7}></hr>
+      <p id={styles.or}>OR</p>
       </div>
-      <div className='hr'>
-      <hr className="new8"></hr>
+      <div className={styles.hr}>
+      <hr className={styles.new8}></hr>
       </div>
-      <p id='usernamep'>User Name </p> 
-      <input id='userinput1' type='Username'onChange={handleUserChange}/>
-      <p id='username11'>Email</p>
-      <input id='userinput2' type='email' onChange={handleEmailChange}/>
-      <p id='username12'>Password</p>
-      <input id='userinput21' type='password' onChange={handlePasswordChange}/>
-      <button id='buttonl' type='button' onClick={handleSignup}>Sign Up</button>
+      <p id={styles.usernamep}>User Name </p> 
+      <input id={styles.userinput1} type='Username'onChange={handleUserChange}/>
+      <p id={styles.username11}>Email</p>
+      <input id={styles.userinput2} type='email' onChange={handleEmailChange}/>
+      <p id={styles.username12}>Password</p>
+      <input id={styles.userinput21} type='password' onChange={handlePasswordChange}/>
+      <button id={styles.buttonl} type='button' onClick={handleSignup}>Sign Up</button>
       
     
     </>

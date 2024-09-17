@@ -1,9 +1,18 @@
-#divv{
+/* #divv{
   display: flex;
   margin-left: 50px;
+  position: absolute;
+  margin-top: 160px;
 }
 
+#newarrivals{
+  margin-top: 90px;
+  position: relative;
 
+} */
+ #divvo{
+  display: flex;
+ }
 
 .he{
   margin-left: 70px;

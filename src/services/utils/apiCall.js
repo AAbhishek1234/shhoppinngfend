@@ -1,7 +1,7 @@
 import { useLoaderStore } from "../lib/zustand";
 
 const url = "http://localhost:4000";
-const token = sessionStorage.getItem("token");
+const token = localStorage.getItem("token");
 
 const apiCall = async (path, body = null, method = "GET") => {
   const { setLoading } = useLoaderStore.getState();

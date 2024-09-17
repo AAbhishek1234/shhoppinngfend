@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from 'react'
 import Card from './Card';
 import { useNavigate } from 'react-router-dom';
-import './Shop.css';
+import './Shop.css'
 function Topselling() {
   const navigate = useNavigate();
   function handleClick(productId) {
@@ -20,7 +20,7 @@ function Topselling() {
   }, []);
   return  <>
     <h1 id='newarrivals'>TOP SELLING</h1>
-       <div id='divv'>
+       <div id='divvo'>
        {
        topsell && topsell.map((product,index)=>{
       

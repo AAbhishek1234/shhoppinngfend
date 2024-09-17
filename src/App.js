@@ -5,19 +5,22 @@ import './App.css';
 import Home from './pages/Home';
 import Shop from './pages/Shop';
 import Cart from './pages/Cart';
-import Nav from './components/Nav';
+
 import Log from './pages/Log';
 import OnSale from './components/OnSale';
 import Brands from './components/Brands';
-import NewArrival from './components/NewArrival';
-import NewArrivals from './components/NewArrivals'
+
 import Signup from './pages/Signup'
 //import Profile from './Pages/Profile';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Productdetails from './pages/Productdetails'
 import Loader from './components/Loader';
-
+import Casual from './components/Casual';
+import Formal from './components/Formal';
+import Party from './components/Party';
+import Gym from './components/Gym';
+import Arrival from './components/Arrival';
 function App()
  {
   return(
@@ -25,7 +28,8 @@ function App()
    
     <ToastContainer/>
     <Loader/>
-        <Router>   
+        <Router> 
+          {/* <Nav></Nav>   */}
           <Routes> 
         {/* <Route path="/" element={<Nav/>}/>  */}
              <Route path='/' element={<Home/>}> </Route>
@@ -33,11 +37,15 @@ function App()
              <Route path='/Cart' element={<Cart/>}/> 
              <Route path='/Log' element={<Log/>}/>
              <Route path='/OnSale'element={<OnSale/>}/>
-             <Route path='/NewArrivals'element={<NewArrivals/>}/>
+             <Route path='/NewArrival' element={<Arrival/>}/>
              <Route path='/Brands' element={<Brands/>}/>
              <Route path='/Signup' element={<Signup/>}/>
              <Route path='/Productdetails/:productId' element={<Productdetails/>}/>
-          
+             <Route path='/Casual' element={<Casual/>}/>
+             <Route path='/Formal' element={<Formal/>}/>
+            <Route path='/Party' element={<Party/>}/>
+            <Route path='/Gym' element={<Gym/>}/>
+
           </Routes>
         </Router>
         

@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useAuth } from "react";
 import "./Log.css";
 import { Link } from "react-router-dom";
-import Signup from "./Signup";
+import Signup from "./Signup"
 import Home from "./Home";
 import { toast } from "react-toastify";
 
@@ -39,7 +39,7 @@ function Log() {
       .then((data) => {
         console.log(data);
         if (data.jwtToken && data.success) {
-          sessionStorage.setItem("token", data.jwtToken);
+          localStorage.setItem("token", data.jwtToken);
           toast.success("sign in successfully!");
           navigate("/");
         }

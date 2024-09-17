@@ -8,8 +8,6 @@ import "./Productdetails.css";
 import { useFetch } from "../hooks/useFetch";
 import { useParams } from "react-router-dom";
 import Nav from "../components/Nav";
-import Topselling from "../components/Topselling";
-import Card from "../components/Card";
 import { postData } from "../services/utils/apiCall";
 
 function Productdetails() {
@@ -27,10 +25,10 @@ function Productdetails() {
   //   console.log(productId)
   //function handleClick() {}
   const [data, setData] = useState();
-  const [color, setColor] = useState("sandy");
+  const [color, setColor] = useState("Black");
   const [count, setCount] = useState(1);
   
-  const [size, setSize] = useState("");
+  const [size, setSize] = useState("Large");
 
   async function handleClick() {
     try {

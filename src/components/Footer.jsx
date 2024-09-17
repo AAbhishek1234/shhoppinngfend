@@ -1,15 +1,22 @@
 import React from 'react'
 import './Footer.css';
+import { useNavigate } from 'react-router-dom';
 function Footer() {
+  const navigate = useNavigate();
+
+const clickHandler = () => navigate("Casual");
+const Formal = () => navigate("Formal");
+const Party = () => navigate("Party");
+const Gym = () => navigate("Gym");
   return (
     <>
   {/* container images stored  */}
   <div className='container'>
    <h1 id='c2'>BROWSE BY DRESS STYLE</h1>
-   <img  id='f1'src='/Images/Frame 61.png'/>
-   <img  id='f2'src='/Images/Frame 62.png'/>
-   <img  id='f3'src='/Images/Frame 64.png'/>
-   <img  id='f4'src='/Images/Frame 63.png'/>
+   <img  id='f1'src='/Images/Frame 61.png' onClick={clickHandler}/>
+   <img  id='f2'src='/Images/Frame 62.png' onClick={Formal}/>
+   <img  id='f3'src='/Images/Frame 64.png' onClick={Party}/>
+   <img  id='f4'src='/Images/Frame 63.png' onClick={Gym}/>
   </div> 
    {/* Our Happy Customers */}
    <h1 id='hp'>OUR HAPPY CUSTOMERS</h1>

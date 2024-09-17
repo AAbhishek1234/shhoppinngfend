@@ -1,7 +1,22 @@
 #newarrivals{
     font-size: 45px;
-    margin-left: 440px;
+    margin-left: 420px;
+    position: absolute;
+    margin-top: 40px;
+
    }
+#divv{
+  display: flex;
+  margin-left: 50px;
+  position: relative;
+  margin-top: 160px;
+}
+
+
+
+
+
+
    .t-shirt img{
     height: 280px;
     width: 280px;

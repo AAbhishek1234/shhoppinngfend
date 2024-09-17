@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import "./Ncard.css";
-import {useStore} from "../services/lib/zustand"
 const Card = ({ product,handleClick }) => {
   const navigate = useNavigate();
   const click = () => {

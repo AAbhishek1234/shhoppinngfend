@@ -11,11 +11,10 @@
     /* position: absolute; */
 }
 #shirt1121{
-    position: relative;
     height: 400px;
     width: 320px;
-    left: -550px;
-    top: 55px;
+    margin-left: -1090px;
+    margin-top: 115px;
 }
 #localt{
     height: 159px;
@@ -300,7 +299,7 @@
 #heading{
     position: absolute;
     margin-left: 10px;
-    margin-top: -10px;
+    margin-top: 60px;
 }
 #prating{
     font-size: 30px;

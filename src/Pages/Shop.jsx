@@ -39,7 +39,7 @@ function Shop() {
 
   return (
     <>
-    <Nav></Nav>
+   <Nav></Nav>
     <div className='main'>
   <h1 className='he'>FIND CLOTHES<br/>THAT MATCHES <br/>YOUR STYLE</h1>
   <p id='p1'>Browse through our diverse range of meticulously crafted garmnents,designed<br/>
