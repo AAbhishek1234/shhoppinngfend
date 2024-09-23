@@ -2,41 +2,37 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
-import NewArrivals from "../components/NewArrivals";
-import { useStore } from "../services/lib/zustand";
 import "./Productdetails.css";
-import { useFetch } from "../hooks/useFetch";
 import { useParams } from "react-router-dom";
 import Nav from "../components/Nav";
 import { postData } from "../services/utils/apiCall";
 
 function Productdetails() {
-  // const { productId } = useStore();
   const { productId } = useParams();
   const navigate = useNavigate();
 
   console.log(productId);
-
-  // const { data, error } = useFetch(`/product/single?productid=${productId}`);
-
-  // console.log("data", data);
-  // console.log("error", error);
-
-  //   console.log(productId)
-  //function handleClick() {}
+  const[title,setTitle]=useState();
   const [data, setData] = useState();
-  const [color, setColor] = useState("Black");
+  const [color, setColor] = useState("");
   const [count, setCount] = useState(1);
+  //const[price,setPrice]=useState();
   
-  const [size, setSize] = useState("Large");
+  const [size, setSize] = useState("");
 
   async function handleClick() {
     try {
       const data = await postData("/cart/addtocart", {
         product_id: productId,
+         title:title,
         quantity: count,
-        color,
-        size,
+        color:color,
+        size:size,
+        //price:price
+      
+        
+
+
       });
       console.log(data);
       navigate("/cart")
@@ -44,7 +40,6 @@ function Productdetails() {
 
       console.log(error)
     }
-    // navigate("/Cart");
   }
 
   useEffect(() => {
@@ -74,42 +69,65 @@ function Productdetails() {
         <p id="prating">{data.rating}</p>
         <div className="productprice ">{data.price}</div>
         <p id="selectcolor">Select Colors</p>
-        <button
-          className={`sandy ${color == "sandy" && "colorBorder"}`}
-          type="button"
-          onClick={() => setColor("sandy")}
-        ></button>
-        <button
-          className={`green ${color == "green" && "colorBorder"}`}
-          type="button"
-          onClick={() => setColor("green")}
-        ></button>
-        <button
-          className={`blue ${color == "blue" && "colorBorder"}`}
-          type="button"
-          onClick={() => setColor("blue")}
-        ></button>
+<button
+  className={`sandy ${color === "sandy" ? "selected" : ""}`}
+  type="button"
+  onClick={() => setColor("sandy")}
+>
+</button>
+<button
+  className={`green ${color === "green" ? "selected" : ""}`}
+  type="button"
+  onClick={() => setColor("green")}
+>
+  
+</button>
+<button
+  className={`blue ${color === "blue" ? "selected" : ""}`}
+  type="button"
+  onClick={() => setColor("blue")}
+>
+  
+</button>
+
         <div className="producthr1"></div>
         <p id="choosesize">Choose Size</p>
-        <button className="small"
-        type="button" >
-          Small 
-          </button>
-          <button className="Medium" 
-        type="button" >
-          Medium
-        </button>
-        <button className="Large"  
-        type="button" onClick={() => setSize("Large")}>
-          Large
-        </button>
-        <button className="X-Large"  
-        type="button" onClick={() => setSize("X-Large")} >
-          X-Large
-        </button>
+<button
+  className={`small ${size === "Small" ? "selected" : ""}`}
+  type="button"
+  onClick={() => setSize("Small")}
+>
+  Small
+</button>
+<button
+  className={`medium ${size === "Medium" ? "selected" : ""}`}
+  type="button"
+  onClick={() => setSize("Medium")}
+>
+  Medium
+</button>
+<button
+  className={`large ${size === "Large" ? "selected" : ""}`}
+  type="button"
+  onClick={() => setSize("Large")}
+>
+  Large
+</button>
+<button
+  className={`x-large ${size === "X-Large" ? "selected" : ""}`}
+  type="button"
+  onClick={() => setSize("X-Large")}
+>
+  X-Large
+</button>
+
         <div className="producthr2"> </div>
         <div id="calculation1">
-          <button id="buttong1" onClick={() => setCount(count - 1)}>
+          <button id="buttong1"    onClick={() => {
+      if (count > 1) {
+        setCount(count - 1);
+      }
+    }}>
             -
           </button>
           <span id="span1">{count}</span>
@@ -219,3 +237,6 @@ function Productdetails() {
   );
 }
 export default Productdetails;
+
+
+

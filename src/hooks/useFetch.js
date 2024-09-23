@@ -20,5 +20,4 @@ export function useFetch(path) {
     fetchData();
   }, [path]);
 
-  return { data, error };
-}
+  return { data, error };}

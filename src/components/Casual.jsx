@@ -20,7 +20,7 @@ function Casual() {
       }, []);
   return (
     <>
-    <Nav></Nav>
+   
       <h1 id={styles.heading}>Casuals</h1>
       <div id={styles.divcasual}>
         {casual &&

@@ -1,5 +1,5 @@
-.colorBorder{
-    border: 2px dashed yellow !important;
+.selected{
+    border: 2px dotted black !important;
     background-color: red;
 
 }
@@ -164,7 +164,7 @@
     color: white;
     cursor: pointer;
 }
-.Medium{
+.medium{
     background-color:  #f0f0f0;
     height: 40px;
     width: 95px;
@@ -174,12 +174,12 @@
     margin-left: 10px;
     margin-top: -10px;
 }
-.Medium:hover{
+.medium:hover{
     background-color: black;
     color: white;
     cursor: pointer;
 }
-.Large{
+.large{
     background-color:  #f0f0f0;
     height: 40px;
     width: 80px;
@@ -189,13 +189,13 @@
     margin-left: 10px;
     margin-top: -10px;
 }
-.Large:hover{
+.large:hover{
     background-color: black;
     color: white;
     cursor: pointer;
 }
 
-.X-Large{
+.x-large{
     background-color:  #f0f0f0;
     height: 40px;
     width: 95px;
@@ -206,7 +206,7 @@
     margin-top: -10px;
     
 }
-.X-Large:hover{
+.x-large:hover{
     background-color: black;
     color: white;
     cursor: pointer;

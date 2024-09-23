@@ -50,7 +50,7 @@ function Log() {
 
   return (
     <>
-      <h1 id="hh">SHOP.CO</h1>
+      <a href="/"><h1 id="hh">SHOP.CO</h1></a>
       <img id="log" src="/Images/bert-b-rhNff6hB41s-unsplash 1.png" />
       <button id="button1" type="button">
         Login

@@ -4,6 +4,8 @@
     position: absolute;
     margin-top: 1px;
     font-weight: bolder;
+    text-decoration: none;
+    color: black;
 }
 #log{
     width: 440px;

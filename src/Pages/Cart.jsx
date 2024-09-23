@@ -1,137 +1,12 @@
-// import { useState } from "react";
-// import React from "react";
-// import Nav from "../components/Nav";
-// import { useFetch } from "../hooks/useFetch";
-// import "./cart.css";
-// import Stayuptodate from "../components/Stayuptodate";
-// import Footer from "../components/Footer";
-// import ActualFooter from "../components/ActualFooter";
-// import { deleteData, putData } from "../services/utils/apiCall";
-// function Cart() {
-//   const [cont, setCont] = useState(1);
-//   const [cartItems, setCartItems] = useState();
-
-//   const { data, error } = useFetch("/cart/addtocart");
-
-//   console.log(data);
-//   function myFunction() {
-//     window.confirm("Your order is confirmed");
-//   }
-//   const discountRate = 0.2;
-//   const deliveryFee = 15;
-
-//   const handleIncrement = async (id) => {
-//     const result = await putData("/cart/addtocart", {
-//       product_id: id,
-//     });
-//     setCartItems(
-//       cartItems.map((item) =>
-//         item.product_id === id ? { ...item, quantity: item.quantity + 1 } : item
-//       )
-//     );
-//   };
-
-//   const handleDecrement = (id) => {
-//     putData("/decrease?productId=" + id);
-//     setCartItems(
-//       cartItems.map((item) =>
-//         item.product_id === id && item.quantity > 1
-//           ? { ...item, quantity: item.quantity - 1 }
-//           : item
-//       )
-//     );
-//   };
-
-//   return (
-//     <>
-//       <Nav />
-//       <h1 id="yourcart">YOUR CART</h1>
-//       <div id="outerdiv">
-//         {data &&
-//           data.map((product, index) => (
-//             <div className="outerdivChild">
-//               <img
-//                 id="img35"
-//                 src={`data:${product.image.fileType};base64,${product.image.fileContent}`}
-//               />
-//               <div id="line"></div>
-//               <div id="line1"></div>
-//               <h2 id="chs">{product.title}</h2>
-//               <p id="size">Size:Large</p>
-//               <p id="color">Color:Red</p>
-//               <p id="dollar">{product.price}</p>
-//               <img
-//                 id="del"
-//                 src="./Images/delete.png"
-//                 onClick={() => {
-//                   deleteData(`/cart/addtocart?productId=${product._id}`);
-//                 }}
-//               />
-//               <div id="calculation2">
-//                 <button
-//                   id="buttong1"
-//                   onClick={() => {
-//                     setCont(cont - 1);
-//                     putData(`/decrease?productId=${product._id}`);
-//                   }}
-//                 >
-//                   -
-//                 </button>
-//                 <span id="span1">{cont}</span>
-//                 <button
-//                   id="buttongg1"
-//                   onClick={() => {
-//                     setCont(cont + 1);
-//                     putData(`/cart/addtocart?productId=${product._id}`);
-//                   }}
-//                 >
-//                   +
-//                 </button>
-//               </div>
-//             </div>
-//           ))}
-//       </div>
-//       <div id="summarydiv">
-//         <h2 id="orders">Order Summary</h2>
-//         <p id="subtotal">Subtotal:</p>
-//         <p id="rupee"></p>
-//         <p id="dis">
-//           Discount({discountRate * 100}%):{""}
-//         </p>
-//         <p id="rupee1">$113</p>
-//         <p id="dely">Delivery Fees</p>
-//         <p id="rupee2">$15</p>
-//         <div id="underline"></div>
-//         <p id="total">Total</p>
-//         <p id="rupee3">$333</p>
-//         <input
-//           id="memo"
-//           type="text"
-//           placeholder="                Add promo code"
-//         ></input>
-//         <button id="app">Apply</button>
-//         <button id="go1" onClick={myFunction}>
-//           Go to Checkout{" "}
-//         </button>
-//       </div>
-//       <Stayuptodate></Stayuptodate>
-//       <ActualFooter></ActualFooter>
-//       {/* <Footer></Footer> */}
-//     </>
-//   );
-// }
-
-// export default Cart;
-
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./cart.css";
+import { Link } from "react-router-dom";
 import OrderSuccess from "../components/OrderSuccess.jsx";
 import { useFetch } from "../hooks/useFetch.js";
 import { deleteData, postData, putData } from "../services/utils/apiCall.js";
 import Footer from "../components/Footer.jsx";
-import Nav from "../components/Nav.jsx";
 
 function Cart() {
   const [cartItems, setCartItems] = useState();
@@ -219,26 +94,6 @@ function Cart() {
     ).toFixed(2);
   };
 
-  // const [size, setSize] = useState("Large");
-  // const [color, setColor] = useState("Blue");
-  // const [quantity, setQuantity] = useState("1");
-  // const navigate = useNavigate();
-  // const handleset = async () => {
-  //   try {
-  //     const result = await postData("/Order/create", {
-  //       product_id: productId,
-
-  //       color: color,
-  //       size: size,
-  //       quantity: quantity,
-  //     });
-
-  //     console.log(result);
-  //     navigate("/");
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-
   return (
     <>
       {console.log(cartItems)}
@@ -252,12 +107,14 @@ function Cart() {
               <div className="cart-items">
                 <h2>Your Cart</h2>
                 {cartItems.map((item) => (
-                  <div key={item.product_id} className="cart-item">
-                    <img
-                      src={`data:${item.image.fileType};base64,${item.image.fileContent}`}
-                      alt={item.name}
-                      className="item-image"
-                    />
+                  <div key={`${item.product_id}-${item.color}-${item.size}`} className="cart-item">
+                   <Link to={`/Productdetails/${item.product_id}`}>
+    <img
+      src={`data:${item.image.fileType};base64,${item.image.fileContent}`}
+      alt={item.name}
+      className="item-image"
+    />
+  </Link>
                     <div className="item-details">
                       <h4 id="tit">{item.title}</h4>
 
@@ -329,3 +186,11 @@ function Cart() {
 }
 
 export default Cart;
+
+
+
+
+
+
+
+

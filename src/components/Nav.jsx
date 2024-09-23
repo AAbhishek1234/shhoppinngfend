@@ -20,7 +20,7 @@ function Nav() {
           <>
              <Link to="/Cart">
           <img id='cart' src="/Images/shopping-cart (1).png" alt="cart" /></Link>
-        
+         
                      <span
                      id="user"
                        onClick={() => {
@@ -28,17 +28,25 @@ function Nav() {
                          navigate("/");
                        }}
                      >LogOut</span>
+                      
                    </>
                  ) : (
                     <Link  to="/Log">
                       <p id='sss'>Login</p>
                       
                       </Link>
-                  
+              
                  )}
        </div>
+   
     </>
   );
 }
 
 export default Nav;
+
+
+
+
+
+

@@ -253,8 +253,14 @@ margin-left: 10rem;
     margin-top: 10rem;
 } */
 
+#youcart{
+  text-decoration: none;
+  color: black;
 
-
+}
+a{
+  text-decoration: none;
+}
 
 .shopping-cart {
     display: flex;
@@ -264,6 +270,7 @@ margin-left: 10rem;
   
   .cart-items {
     width: 60%;
+   
   }
   
   .cart-item {

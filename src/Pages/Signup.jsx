@@ -50,7 +50,7 @@ function Signup() {
   }
   return(
     <>
-    <h1 id={styles.hh}>SHOP.CO</h1>
+    <a href='/'><h1 id={styles.hh}>SHOP.CO</h1></a>
    <img id={styles.log} src='/Images/bert-b-rhNff6hB41s-unsplash 1.png'/>
     <h3 id={styles.signup}>Sign Up Page</h3>
     <button id={styles.button3} type='button'>Continue With Google</button>

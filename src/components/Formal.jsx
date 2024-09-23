@@ -22,7 +22,7 @@ function Formal() {
       }, []);
   return (
     <>
-   <Nav></Nav>
+  
    <h1 id={styles.formal}>Formal</h1>
       <div id={styles.divformal}>
         {formal &&

@@ -22,7 +22,7 @@ useEffect(() => {
   }, []);
   return (
     <>
-    <Nav></Nav>
+  
     <h1 id={styles.gym}>GYM</h1>
       <div id={styles.divgym}>
         {gym &&

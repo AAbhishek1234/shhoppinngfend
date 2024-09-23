@@ -1,19 +1,19 @@
 import { useNavigate } from "react-router-dom";
-import "./Ncard.css";
+import styles from '../styles/card.module.css'
 const Card = ({ product,handleClick }) => {
   const navigate = useNavigate();
   const click = () => {
     handleClick(product._id)
   };
   return (
-    <div className="t-shirt" onClick={click}>
+    <div className={styles.tshirt} onClick={click}>
       <img
         src={`data:${product.image.fileType};base64,${product.image.fileContent}`}
         alt="T-shirt with Tape Details"
       />
-      <p className="p8">{product.title}</p>
-      <p id="ratii">{product.rating}</p>
-      <p id="product">{product.price}</p>
+      <p id={styles.p8}>{product.title}</p>
+      <p id={styles.ratii}>{product.rating}</p>
+      <p id={styles.product}>{product.price}</p>
     </div>
     
   );
