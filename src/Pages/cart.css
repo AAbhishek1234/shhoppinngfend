@@ -392,3 +392,8 @@ a{
   #color{
     font-size: 20px;
   }
+  #cempty{
+    height: 5rem;
+    width: 5rem;
+    margin-left: 40rem;
+  }

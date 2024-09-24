@@ -21,6 +21,8 @@ import Formal from './components/Formal';
 import Party from './components/Party';
 import Gym from './components/Gym';
 import Arrival from './components/Arrival';
+import ProtectedRoute from './components/ProtectedRoute';
+import Order from './pages/Order';
 function App()
  {
   return(
@@ -35,16 +37,17 @@ function App()
              <Route path='/' element={<Home/>}> </Route>
              <Route path="/Shop" element={<Shop />}/>
              <Route path='/Cart' element={<Cart/>}/> 
-             <Route path='/Log' element={<Log/>}/>
+             <Route path="/Log" element={<ProtectedRoute element={<Log />} />} />
              <Route path='/OnSale'element={<OnSale/>}/>
              <Route path='/NewArrival' element={<Arrival/>}/>
              <Route path='/Brands' element={<Brands/>}/>
-             <Route path='/Signup' element={<Signup/>}/>
+             <Route path="/Signup" element={<ProtectedRoute element={<Signup />} />} />
              <Route path='/Productdetails/:productId' element={<Productdetails/>}/>
              <Route path='/Casual' element={<Casual/>}/>
              <Route path='/Formal' element={<Formal/>}/>
             <Route path='/Party' element={<Party/>}/>
             <Route path='/Gym' element={<Gym/>}/>
+            <Route path='/Order' element={<Order/>}/>
 
           </Routes>
         </Router>

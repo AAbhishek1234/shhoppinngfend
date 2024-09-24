@@ -21,6 +21,17 @@ function Productdetails() {
   const [size, setSize] = useState("");
 
   async function handleClick() {
+    const token = localStorage.getItem("token")
+    if (!token) {
+
+      // If no token, show an alert and navigate to login page
+      alert("You are not logged in. Please log in or create an account.");
+      navigate("/Log");
+      return;
+    }
+
+
+
     try {
       const data = await postData("/cart/addtocart", {
         product_id: productId,
