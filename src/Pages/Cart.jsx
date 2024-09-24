@@ -563,10 +563,10 @@ function Cart() {
         </>
       ) : (
         <div className="empty-cart">
-          <h2>Your cart is empty</h2>
-          <p>
+         <center><h2>Your cart is empty</h2></center> 
+         <center> <h3>
             Browse our <Link to="/">Shoping</Link> to add items to your cart.
-          </p>
+          </h3></center>
         </div>
       )}
     </>
