@@ -21,7 +21,7 @@ import Gym from './components/Gym';
 import Arrival from './components/Arrival';
 import ProtectedRoute from './components/ProtectedRoute';
 import Order from './pages/Order';
-import Profile from './pages/profile';
+import Profile from './pages/Profile';
 function App()
  {
   return(
