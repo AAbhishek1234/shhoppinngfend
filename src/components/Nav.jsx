@@ -161,7 +161,7 @@ function Nav() {
               {dropdownOpen && (
                 <div className="dropdown-menu">
                   <Link to="/Order">Order</Link>
-                  <Link to="/Account">Account</Link>
+                  <Link to="/profile">Profile</Link>
                   <span onClick={handleLogout}>LogOut</span>
                 </div>
               )}

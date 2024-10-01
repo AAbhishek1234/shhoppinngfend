@@ -50,6 +50,7 @@ function Log() {
 
   return (
     <>
+    <form className="abc" onSubmit={handleSignin}>
       <a href="/"><h1 id="hh">SHOP.CO</h1></a>
       <img id="log" src="/Images/bert-b-rhNff6hB41s-unsplash 1.png" />
       <button id="button1" type="button">
@@ -74,7 +75,7 @@ function Log() {
       <input id="userinput1" onChange={handleUserChange} type="email" />
       <p id="username1">Password</p>
       <input id="userinput2" onChange={handlePasswordChange} type="password" />
-      <button id="button4" type="button" onClick={handleSignin}>
+      <button id="button4" type="submit" >
         Sign in
       </button>
       <p id="account"> Don't have an account?</p>
@@ -82,6 +83,7 @@ function Log() {
         {" "}
         <p id="sin">Sign up</p>
       </Link>
+      </form>
     </>
   );
 }

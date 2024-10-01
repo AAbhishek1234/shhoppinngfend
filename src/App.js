@@ -11,7 +11,7 @@ import OnSale from './components/OnSale';
 import Brands from './components/Brands';
 
 import Signup from './pages/Signup'
-//import Profile from './Pages/Profile';
+import Profile from './pages/Profile';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Productdetails from './pages/Productdetails'
@@ -48,6 +48,7 @@ function App()
             <Route path='/Party' element={<Party/>}/>
             <Route path='/Gym' element={<Gym/>}/>
             <Route path='/Order' element={<Order/>}/>
+           <Route path='/Profile' element={<Profile/>}/>
 
           </Routes>
         </Router>

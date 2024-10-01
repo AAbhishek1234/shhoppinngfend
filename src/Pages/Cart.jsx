@@ -418,7 +418,7 @@ function Cart() {
 
   const handleset = async () => {
     try {
-      await postData("/Order/create", {
+      await postData("/order/create", {
         items: cartItems,
         subtotal: calculateSubtotal(),
         discount: calculateDiscount(),
