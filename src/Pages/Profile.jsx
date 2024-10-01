@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-const UserProfile = () => {
+const Profile = () => {
   const [profiles, setProfiles] = useState([]);
   const [newProfile, setNewProfile] = useState({
     userId: '',
@@ -210,4 +210,4 @@ const UserProfile = () => {
   );
 };
 
-export default UserProfile;
+export default Profile;

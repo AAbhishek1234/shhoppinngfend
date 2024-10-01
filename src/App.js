@@ -5,13 +5,11 @@ import './App.css';
 import Home from './pages/Home';
 import Shop from './pages/Shop';
 import Cart from './pages/Cart';
-
 import Log from './pages/Log';
 import OnSale from './components/OnSale';
 import Brands from './components/Brands';
 
 import Signup from './pages/Signup'
-import Profile from './pages/Profile';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Productdetails from './pages/Productdetails'
@@ -23,6 +21,7 @@ import Gym from './components/Gym';
 import Arrival from './components/Arrival';
 import ProtectedRoute from './components/ProtectedRoute';
 import Order from './pages/Order';
+import Profile from './pages/profile';
 function App()
  {
   return(
