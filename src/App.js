@@ -31,9 +31,7 @@ function App()
     <ToastContainer/>
     <Loader/>
         <Router> 
-          {/* <Nav></Nav>   */}
           <Routes> 
-        {/* <Route path="/" element={<Nav/>}/>  */}
              <Route path='/' element={<Home/>}> </Route>
              <Route path="/Shop" element={<Shop />}/>
              <Route path='/Cart' element={<Cart/>}/> 
