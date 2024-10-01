@@ -1,6 +1,6 @@
 {
   "name": "ecom",
-  "Homepage": "/",
+  "Homepage": "./pages/Home",
 
   "version": "0.1.0",
   "private": true,
