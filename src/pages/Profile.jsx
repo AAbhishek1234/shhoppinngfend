@@ -1,212 +1,346 @@
+// import React, { useState, useEffect } from 'react';
+// import axios from 'axios';
+// import { Button, Form, Container } from 'react-bootstrap';
+
+// const Profile = () => {
+//   // States for form fields
+//   const [userData, setUserData] = useState({
+//     name: '',
+//     email: '',
+//     phone: '',
+//     address: '',
+//     gender: '',
+//     age: '',
+//   });
+
+//   // State to show success/error messages
+//   const [message, setMessage] = useState('');
+//   const handleLogout = () => {
+//     localStorage.removeItem("token");
+//     navigate("/");
+//   // Fetch user profile on page load
+//   useEffect(() => {
+//     const fetchUserProfile = async () => {
+//       try {
+//         const token = localStorage.getItem('jwtToken');
+//         const response = await axios.get('http://localhost:4000/userProfile/profile', {
+//           headers: {
+//             Authorization: `Bearer ${localStorage.getItem('token')}`,
+//           },
+//         });
+//         // Populate the form with the fetched data
+//         setUserData({
+//           ...response.data.user,
+//         });
+//       } catch (error) {
+//         console.error('Error fetching profile:', error);
+//         setMessage('Error fetching profile data.');
+//       }
+//     };
+
+//     fetchUserProfile();
+//   }, []);
+
+
+ 
+
+//   // Handle form input changes
+//   const handleInputChange = (e) => {
+//     const { name, value } = e.target;
+//     setUserData({
+//       ...userData,
+//       [name]: value,
+//     });
+//   };
+
+//   // Handle form submission (PUT request to update profile)
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+
+//     try {
+//       const token = localStorage.getItem('jwtToken');
+//       const response = await axios.put('http://localhost:4000/userProfile/profile', userData, {
+//         headers: {
+//           Authorization: `Bearer ${localStorage.getItem('token')}`,
+//         },
+//       });
+
+//       setMessage(response.data.message); // Success message
+//     } catch (error) {
+//       console.error('Error updating profile:', error);
+//       setMessage('Error updating profile.');
+//     }
+//   };
+
+//   return (
+//     <Container className="mt-5">
+//       <h2>Update Profile</h2>
+
+//       {/* Display success or error messages */}
+//       {message && <div className="alert alert-info">{message}</div>}
+
+//       {/* Profile Update Form */}
+//       <Form onSubmit={handleSubmit}>
+//         <Form.Group controlId="formName">
+//           <Form.Label>Name</Form.Label>
+//           <Form.Control
+//             type="text"
+//             name="name"
+//             value={userData.name}
+//             onChange={handleInputChange}
+//             required
+//           />
+//         </Form.Group>
+
+//         <Form.Group controlId="formEmail">
+//           <Form.Label>Email</Form.Label>
+//           <Form.Control
+//             type="email"
+//             name="email"
+//             value={userData.email}
+//             onChange={handleInputChange}
+//             disabled
+//           />
+//         </Form.Group>
+
+//         <Form.Group controlId="formPhone">
+//           <Form.Label>Phone Number</Form.Label>
+//           <Form.Control
+//             type="text"
+//             name="phone"
+//             value={userData.phone}
+//             onChange={handleInputChange}
+//           />
+//         </Form.Group>
+
+//         <Form.Group controlId="formAddress">
+//           <Form.Label>Address</Form.Label>
+//           <Form.Control
+//             type="text"
+//             name="address"
+//             value={userData.address}
+//             onChange={handleInputChange}
+//           />
+//         </Form.Group>
+
+//         <Form.Group controlId="formGender">
+//           <Form.Label>Gender</Form.Label>
+//           <Form.Control
+//             as="select"
+//             name="gender"
+//             value={userData.gender}
+//             onChange={handleInputChange}
+//           >
+//             <option value="">Select</option>
+//             <option value="Male">Male</option>
+//             <option value="Female">Female</option>
+//             <option value="Other">Other</option>
+//           </Form.Control>
+//         </Form.Group>
+
+//         <Form.Group controlId="formAge">
+//           <Form.Label>Age</Form.Label>
+//           <Form.Control
+//             type="number"
+//             name="age"
+//             value={userData.age}
+//             onChange={handleInputChange}
+//           />
+//         </Form.Group>
+
+//         {/* Submit Button */}
+//         <Button variant="primary" type="submit" className="mt-3">
+//           Update Profile
+//         </Button>
+//         <Button id='logout' style={{marginLeft:"20rem",marginTop:"-5rem",position:"absolute",backgroundColor:"red",color:"white"}}>Logout</Button>
+//       </Form>
+//     </Container>
+//   );
+// };
+
+// export default Profile;
+
+
+
+
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { Button, Form, Container } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom'; // Add this line to import useNavigate
+
 const Profile = () => {
-  const [profiles, setProfiles] = useState([]);
-  const [newProfile, setNewProfile] = useState({
-    userId: '',
-    name: '',
-    email: '',
-    address: '',
-    gender: '',
-    age: '',
-    phoneNo: '',
-  });
-
-  const [isEditing, setIsEditing] = useState(false);
-  const [editingUserId, setEditingUserId] = useState('');
-  const navigate = useNavigate()
-  useEffect(() => {
-    fetchProfiles();
-  }, []);
-
+  const navigate = useNavigate();  // Initialize navigate here
   useEffect(() => {
     if (!localStorage.getItem("token")) {
       navigate("/");
     }
   }, [navigate]);
+  // States for form fields
+  const [userData, setUserData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    address: '',
+    gender: '',
+    age: '',
+  });
 
+  // State to show success/error messages
+  const [message, setMessage] = useState('');
 
-
-
-
-  const fetchProfiles = async () => {
-    try {
-      const response = await fetch('http://localhost:4000/userProfile/profiles', {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${localStorage.getItem('token')}`, 
-        },
-      });
-      const data = await response.json();
-      if (response.ok) {
-        setProfiles(data);
-      } else {
-        console.log('Error fetching profiles:', data.message);
-      }
-    } catch (error) {
-      console.error('Server error:', error);
-    }
+  // Handle Logout
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/");  // This will now work correctly
   };
 
+  // Fetch user profile on page load
+  useEffect(() => {
+    const fetchUserProfile = async () => {
+      try {
+        const token = localStorage.getItem('jwtToken');
+        const response = await axios.get('http://localhost:4000/userProfile/profile', {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+        });
+        // Populate the form with the fetched data
+        setUserData({
+          ...response.data.user,
+        });
+      } catch (error) {
+        console.error('Error fetching profile:', error);
+        setMessage('Error fetching profile data.');
+      }
+    };
+
+    fetchUserProfile();
+  }, []);
+
+  // Handle form input changes
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setNewProfile({ ...newProfile, [name]: value });
+    setUserData({
+      ...userData,
+      [name]: value,
+    });
   };
-  
+
+  // Handle form submission (PUT request to update profile)
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
-      const method = isEditing ? 'PUT' : 'POST';
-      const response = await fetch('http://localhost:4000/userProfile/profiles', {
-        method: method,
+      const token = localStorage.getItem('jwtToken');
+      const response = await axios.put('http://localhost:4000/userProfile/profile', userData, {
         headers: {
-          'Content-Type': 'application/json',
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
-        body: JSON.stringify(newProfile),
       });
-      const data = await response.json();
-      if (response.ok) {
-        if (isEditing) {
-          setProfiles(profiles.map((profile) => (profile.userId === editingUserId ? data : profile)));
-        } else {
-          setProfiles([...profiles, data]); 
-        }
-        setNewProfile({ userId: '', name: '', email: '', address: '', gender: '', age: '', phoneNo: '' });
-        setIsEditing(false);
-        setEditingUserId('');
-      } else {
-        console.log('Error creating/updating profile:', data.message);
-      }
-    } catch (error) {
-      console.error('Server error:', error);
-    }
-  };
 
-  const deleteProfile = async (userId) => {
-    try {
-      const response = await fetch('http://localhost:4000/userProfile/profiles', {
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ userId }),
-      });
-      const data = await response.json();
-      if (response.ok) {
-        setProfiles(profiles.filter((profile) => profile.userId !== userId));
-      } else {
-        console.log('Error deleting profile:', data.message);
-      }
+      setMessage(response.data.message); // Success message
     } catch (error) {
-      console.error('Server error:', error);
+      console.error('Error updating profile:', error);
+      setMessage('Error updating profile.');
     }
-  };
-
-  const editProfile = (profile) => {
-    setNewProfile({
-      userId: profile.userId,
-      name: profile.name,
-      email: profile.email,
-      address: profile.address,
-      gender: profile.gender,
-      age: profile.age,
-      phoneNo: profile.phoneNo,
-    });
-    setIsEditing(true);
-    setEditingUserId(profile.userId);
   };
 
   return (
+    <Container className="mt-5">
+      <h2>Update Profile</h2>
 
-    <>
-       <div style={{ backgroundColor: '#f0f0f0', padding: '20px', borderRadius: '10px',height:"31.9rem" }}>
-       
-      <h1>User Profiles</h1>
+      {/* Display success or error messages */}
+      {message && <div className="alert alert-info">{message}</div>}
 
-      <form onSubmit={handleSubmit} style={{borderRadius:"5px"}}>
-        <div id='alldata' style={{marginLeft:"40px",fontSize:"25px", border:"2px solid #f0f0f0",width:"25rem",backgroundColor:"#f0f0f0",borderRadius:"15px"}}>
-        Name:
-        <input style={{borderRadius:"5px",border:"none",height:"2rem",marginLeft:"4rem"}}
-          type="text"
-          name="name"
-      
-          value={newProfile.name}
-          onChange={handleInputChange}
-          required
-        /><br/>
-        Email:
-        <input style={{borderRadius:"5px",border:"none",height:"2rem",marginLeft:"4.3rem"}}
-          type="email"
-          name="email"
-         
-          value={newProfile.email}
-          onChange={handleInputChange}
-          required
-        /><br/>
-        Address:
-        <input style={{borderRadius:"5px",border:"none",height:"2rem",marginLeft:"2.6rem"}}
-          type="text"
-          name="address"
-          value={newProfile.address}
-          onChange={handleInputChange}
-          required
-        /><br/>
-        Gender:
-        <input style={{borderRadius:"5px",border:"none",height:"2rem",marginLeft:"2.9rem"}}
-          type="text"
-          name="gender"
-          value={newProfile.gender}
-          onChange={handleInputChange}
-        /><br/>
-        Age:
-        <input style={{borderRadius:"5px",border:"none",height:"2rem",marginLeft:"5.3rem"}}
-          type="number"
-          name="age"
-          value={newProfile.age}
-          onChange={handleInputChange}
-        /><br/>
-        Mobile No:
-        <input style={{borderRadius:"5px",border:"none",height:"2rem",marginLeft:"1rem"}}
-          type="number"
-          name="phoneNo"
-          value={newProfile.phoneNo}
-          onChange={handleInputChange}
-        /><br/>
-         <input type="text" name="userId" placeholder="User ID" value={newProfile.userId} onChange={handleInputChange} required />
-        </div>
-        <button type="submit" style={{borderRadius:"10px", width:"6rem",marginTop:"10px",marginLeft:"45px",border:"2px solid black"}}>{isEditing ? 'Update Profile' : 'Create Profile '}</button>
-        {isEditing && (
-          <button
-            type="button" style={{borderRadius:"10px", width:"6rem",marginTop:"0.8rem",height:"2.3rem",marginLeft:"245px",border:"2px solid black",position:"absolute"}}
-            onClick={() => {
-              setIsEditing(false);
-              setNewProfile({ userId: '', name: '', email: '', address: '', gender: '', age: '', phoneNo: '' });
-            }}
+      {/* Profile Update Form */}
+      <Form onSubmit={handleSubmit}>
+        <Form.Group controlId="formName">
+          <Form.Label>Name</Form.Label>
+          <Form.Control
+            type="text"
+            name="name"
+            value={userData.name}
+            onChange={handleInputChange}
+            required
+          />
+        </Form.Group>
+
+        <Form.Group controlId="formEmail">
+          <Form.Label>Email</Form.Label>
+          <Form.Control
+            type="email"
+            name="email"
+            value={userData.email}
+            onChange={handleInputChange}
+            disabled
+          />
+        </Form.Group>
+
+        <Form.Group controlId="formPhone">
+          <Form.Label>Phone Number</Form.Label>
+          <Form.Control
+            type="text"
+            name="phone"
+            value={userData.phone}
+            onChange={handleInputChange}
+          />
+        </Form.Group>
+
+        <Form.Group controlId="formAddress">
+          <Form.Label>Address</Form.Label>
+          <Form.Control
+            type="text"
+            name="address"
+            value={userData.address}
+            onChange={handleInputChange}
+          />
+        </Form.Group>
+
+        <Form.Group controlId="formGender">
+          <Form.Label>Gender</Form.Label>
+          <Form.Control
+            as="select"
+            name="gender"
+            value={userData.gender}
+            onChange={handleInputChange}
           >
-            Cancel
-          </button>
-        )}
-      </form>
+            <option value="">Select</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </Form.Control>
+        </Form.Group>
 
-      <ul>
-        {profiles.map((profile) => (
-          <li key={profile.userId}>
-            <h2 style={{marginLeft:"35rem",marginTop:"-19rem"}}>{profile.name}</h2>
-            <p style={{marginLeft:"35rem"}}>Email: {profile.email}</p>
-            <p style={{marginLeft:"35rem"}}>Address: {profile.address}</p>
-            <p style={{marginLeft:"35rem"}}>Gender: {profile.gender}</p>
-            <p style={{marginLeft:"35rem"}}>Age: {profile.age}</p>
-            <p style={{marginLeft:"35rem"}}>Mobile No: {profile.phoneNo}</p>
-            <button style={{borderRadius:"10px", width:"6rem",marginTop:"2rem",height:"2.3rem",marginLeft:"115px",border:"2px solid black",position:"absolute"}} onClick={() => editProfile(profile)}>Update</button>
-            <button  style={{borderRadius:"10px", width:"6rem",marginTop:"2rem",height:"2.3rem",marginLeft:"235px",border:"2px solid black",position:"absolute"}}onClick={() => deleteProfile(profile.userId)}>Delete</button>
-          </li>
-        ))}
-      </ul>
-      </div>
-    </>
-    
+        <Form.Group controlId="formAge">
+          <Form.Label>Age</Form.Label>
+          <Form.Control
+            type="number"
+            name="age"
+            value={userData.age}
+            onChange={handleInputChange}
+          />
+        </Form.Group>
+
+        {/* Submit Button */}
+        <Button variant="primary" type="submit" className="mt-3">
+          Update Profile
+        </Button>
+
+        {/* Logout Button */}
+        <Button 
+          onClick={handleLogout} 
+          style={{
+            marginLeft: "20rem",
+            marginTop: "-5rem",
+            position: "absolute",
+            backgroundColor: "red",
+            color: "white"
+          }}
+        >
+          Logout
+        </Button>
+      </Form>
+    </Container>
   );
 };
 
