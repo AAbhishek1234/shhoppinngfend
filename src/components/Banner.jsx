@@ -16,9 +16,9 @@ function Banner() {
   <div className='vl1'></div>
   <p id='p6'>30,000+</p>
   <p id='p7'>Happy Customers</p>
-  <img id='im1'src='/Images/Rectangle_2-removebg-preview 1.png'/>
+  <img id='im1'src='/images/Rectangle_2-removebg-preview 1.png'/>
   </div>
-  <img id='brands'src='/Images/brands1.png'/>
+  <img id='brands'src='/images/brands1.png'/>
     
     
     
