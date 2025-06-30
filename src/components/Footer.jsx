@@ -81,7 +81,7 @@ const Gym = () => navigate("Gym");
     <p id='lastp1'>which you're proud to wear.From<br/></p>
     <p id='lastp2'>womer to men</p>
   
-  <img id='ls'src='/Images/social logo.png'/> 
+  <img id='ls'src='/images/social logo.png'/> 
    {/* company  */}
    <h2 id='lh2'>Company</h2>
   <p id='llp'>About</p>
