@@ -148,7 +148,7 @@ function Nav() {
         {token ? (
           <>
             <Link to="/Cart">
-              <img id='cart' src="/Images/shopping-cart (1).png" alt="cart" />
+              <img id='cart' src="/images/shopping-cart (1).png" alt="cart" />
             </Link>
             
             {/* Dropdown for Order/Account and LogOut */}
