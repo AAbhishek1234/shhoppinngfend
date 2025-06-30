@@ -15,7 +15,7 @@ function ActualFooter() {
           </p>
           <p id="lastp2">womer to men</p>
 
-          <img id="ls" src="/Images/social logo.png" />
+          <img id="ls" src="/images/social logo.png" />
 
           <h2 id="lh2">Company</h2>
           <p id="llp">About</p>
@@ -46,7 +46,7 @@ function ActualFooter() {
             <hr class="new6"></hr>
           </div>
           <p id="Fb4">Shop.co &copy; 2000-2024. All Rights Reserved.</p>
-          <img id="ms" src="/Images/s12.png" />
+          <img id="ms" src="/images/s12.png" />
         </div> 
     </>
   )

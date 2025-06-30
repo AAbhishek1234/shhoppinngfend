@@ -52,7 +52,7 @@ function Log() {
     <>
     <form className="abc" onSubmit={handleSignin}>
       <a href="/"><h1 id="hh">SHOP.CO</h1></a>
-      <img id="log" src="/Images/bert-b-rhNff6hB41s-unsplash 1.png" />
+      <img id="log" src="/images/bert-b-rhNff6hB41s-unsplash 1.png" />
       <button id="button1" type="button">
         Login
       </button>
@@ -63,7 +63,7 @@ function Log() {
       <button id="button3" type="button">
         Continue With Google
       </button>
-      <img id="googleicon" src="/Images/googleicon.png" />
+      <img id="googleicon" src="/images/googleicon.png" />
       <div className="hr">
         <hr class="new7"></hr>
         <p id="or">OR</p>

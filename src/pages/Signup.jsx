@@ -51,10 +51,10 @@ function Signup() {
   return(
     <>
     <a href='/'><h1 id={styles.hh}>SHOP.CO</h1></a>
-   <img id={styles.log} src='/Images/bert-b-rhNff6hB41s-unsplash 1.png'/>
+   <img id={styles.log} src='/images/bert-b-rhNff6hB41s-unsplash 1.png'/>
     <h3 id={styles.signup}>Sign Up Page</h3>
     <button id={styles.button3} type='button'>Continue With Google</button>
-    <img id={styles.googleicon} src='/Images/googleicon.png'/>
+    <img id={styles.googleicon} src='/images/googleicon.png'/>
     <div className={styles.hr}>
       <hr class={styles.new7}></hr>
       <p id={styles.or}>OR</p>
