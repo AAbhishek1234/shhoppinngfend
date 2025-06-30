@@ -13,10 +13,10 @@ const Gym = () => navigate("Gym");
   {/* container images stored  */}
   <div className='container'>
    <h1 id='c2'>BROWSE BY DRESS STYLE</h1>
-   <img  id='f1'src='/Images/Frame 61.png' onClick={clickHandler}/>
-   <img  id='f2'src='/Images/Frame 62.png' onClick={Formal}/>
-   <img  id='f3'src='/Images/Frame 64.png' onClick={Party}/>
-   <img  id='f4'src='/Images/Frame 63.png' onClick={Gym}/>
+   <img  id='f1'src='/images/Frame 61.png' onClick={clickHandler}/>
+   <img  id='f2'src='/images/Frame 62.png' onClick={Formal}/>
+   <img  id='f3'src='/images/Frame 64.png' onClick={Party}/>
+   <img  id='f4'src='/images/Frame 63.png' onClick={Gym}/>
   </div> 
    {/* Our Happy Customers */}
    <h1 id='hp'>OUR HAPPY CUSTOMERS</h1>
@@ -26,9 +26,9 @@ const Gym = () => navigate("Gym");
                       throughhh<br/>
     </p>
     <div className='rating1'>
-    <img src='/Images/rating 5.png'/>
+    <img src='/images/rating 5.png'/>
     <h4>Sarah M.</h4>
-    <img id='t1'src='/Images/tick1.jpg'/>
+    <img id='t1'src='/images/tick1.jpg'/>
     <p id='p8'>"I'm blown away by the quality and style of the<br/>
     clothes i recievd from Shop.co. From casual<br/>
     wear to elegant dresses,every piece I've bought<br/>
@@ -37,9 +37,9 @@ const Gym = () => navigate("Gym");
       </div> 
        {/* 2??  */}
       <div className='rating2'>
-    <img src='/Images/rating 5.png'/>
+    <img src='/images/rating 5.png'/>
     <h4>Sarah M.</h4>
-    <img id='t1'src='/Images/tick1.jpg'/>
+    <img id='t1'src='/images/tick1.jpg'/>
     <p id='p8'>"I'm blown away by the quality and style of the<br/>
     clothes i recievd from Shop.co. From casual<br/>
     wear to elegant dresses,every piece I've bought<br/>
@@ -48,9 +48,9 @@ const Gym = () => navigate("Gym");
       </div> 
        333 
       <div className='rating3'>
-    <img src='/Images/rating 5.png'/>
+    <img src='/images/rating 5.png'/>
     <h4>Sarah M.</h4>
-    <img id='t1'src='/Images/tick1.jpg'/>
+    <img id='t1'src='/images/tick1.jpg'/>
     <p id='p8'>"I'm blown away by the quality and style of the<br/>
     clothes i recievd from Shop.co. From casual<br/>
     wear to elegant dresses,every piece I've bought<br/>
@@ -58,9 +58,9 @@ const Gym = () => navigate("Gym");
     </p>
       </div>
       <div className='rating4'> 
-     <img  id="rattii"src='/Images/rating 5.png'/> 
+     <img  id="rattii"src='/images/rating 5.png'/> 
      <h4>Sarah M.</h4>
-    <img id='t1'src='/Images/tick1.jpg'/>
+    <img id='t1'src='/images/tick1.jpg'/>
     <p id='p8'>"I'm blown a<br/>
     clothes i r<br/>
     wear to elegant<br/>".

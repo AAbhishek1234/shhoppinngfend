@@ -523,7 +523,7 @@ function Cart() {
                     onClick={() => handleRemove(item.product_id)}
                     className="remove-item"
                   >
-                    <img id="deletei" src="\Images\delete.png" alt="delete" />
+                    <img id="deletei" src="\images\delete.png" alt="delete" />
                   </button>
                 </div>
               ))}
