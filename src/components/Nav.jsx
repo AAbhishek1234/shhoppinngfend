@@ -160,8 +160,8 @@ function Nav() {
               {/* Show dropdown when clicked */}
               {dropdownOpen && (
                 <div className="dropdown-menu">
-                  <Link to="/Order">Order</Link>
-                  <Link to="/profile">Profile</Link>
+                 <Link to="/Order">Order</Link>
+                  <Link to="/profile">Profile</Link> 
                   <span onClick={handleLogout}>LogOut</span>
                 </div>
               )}
@@ -178,3 +178,13 @@ function Nav() {
 }
 
 export default Nav;
+
+
+
+
+
+
+
+
+
+
